@@ -1,0 +1,31 @@
+[first-order  P(X_t | X_{t-1})]
+  OK   sum P(v | '<START>') = 1.000000000
+  OK   sum P(v | 'cat') = 1.000000000
+  OK   sum P(v | 'dog') = 1.000000000
+  OK   sum P(v | 'mat') = 1.000000000
+  OK   sum P(v | 'on') = 1.000000000
+  OK   sum P(v | 'park') = 1.000000000
+  OK   sum P(v | 'ran') = 1.000000000
+  OK   sum P(v | 'rug') = 1.000000000
+  OK   sum P(v | 'sat') = 1.000000000
+  OK   sum P(v | 'the') = 1.000000000
+  OK   sum P(v | 'to') = 1.000000000
+  -> 0 failing context(s)
+
+[second-order P(X_t | X_{t-2}, X_{t-1})]
+  OK   sum P(v | ('<START>', '<START>')) = 1.000000000
+  OK   sum P(v | ('<START>', 'the')) = 1.000000000
+  OK   sum P(v | ('cat', 'ran')) = 1.000000000
+  OK   sum P(v | ('cat', 'sat')) = 1.000000000
+  OK   sum P(v | ('dog', 'ran')) = 1.000000000
+  OK   sum P(v | ('dog', 'sat')) = 1.000000000
+  OK   sum P(v | ('on', 'the')) = 1.000000000
+  OK   sum P(v | ('ran', 'to')) = 1.000000000
+  OK   sum P(v | ('sat', 'on')) = 1.000000000
+  OK   sum P(v | ('the', 'cat')) = 1.000000000
+  OK   sum P(v | ('the', 'dog')) = 1.000000000
+  OK   sum P(v | ('the', 'mat')) = 1.000000000
+  OK   sum P(v | ('the', 'park')) = 1.000000000
+  OK   sum P(v | ('the', 'rug')) = 1.000000000
+  OK   sum P(v | ('to', 'the')) = 1.000000000
+  -> 0 failing context(s)

@@ -1,0 +1,26 @@
+============================================================
+First-order vs second-order comparison
+============================================================
+vocabulary size: 12
+first-order  distinct parameters (nonzero entries): 17
+second-order distinct parameters (nonzero entries): 19
+first-order  contexts with no observed continuation:  0
+second-order observed bigrams with no continuation:   3
+first-order  sentence diversity (50 samples): 0.46
+second-order sentence diversity (50 samples): 0.12
+
+First-order examples:
+  the dog sat on the mat
+  the park
+  the park
+  the rug
+  the cat sat on the mat
+  the dog ran to the park
+
+Second-order examples:
+  the dog sat on the mat
+  the dog ran to the park
+  the dog sat on the rug
+  the dog sat on the mat
+  the cat sat on the mat
+  the dog ran to the park

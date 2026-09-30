@@ -1,0 +1,68 @@
+============================================================
+First-order autoregressive language model
+============================================================
+training sentences: 6
+vocabulary (12): ['<END>', '<START>', 'cat', 'dog', 'mat', 'on', 'park', 'ran', 'rug', 'sat', 'the', 'to']
+
+--- Q3: Conditional probability distributions ---
+  P(next | 'the') -> cat=0.250, dog=0.250, mat=0.167, rug=0.167, park=0.167
+  P(next | 'cat') -> sat=0.667, ran=0.333
+  P(next | 'dog') -> sat=0.667, ran=0.333
+  P(next | 'sat') -> on=1.000
+  P(next | 'ran') -> to=1.000
+
+--- Zero-probability transitions (for the words above) ---
+  'the': 6 zero-prob next tokens (e.g. ['<END>', 'on', 'ran', 'sat', 'the', 'to'])
+  'cat': 9 zero-prob next tokens (e.g. ['<END>', 'cat', 'dog', 'mat', 'on', 'park']...)
+  'dog': 9 zero-prob next tokens (e.g. ['<END>', 'cat', 'dog', 'mat', 'on', 'park']...)
+  'sat': 10 zero-prob next tokens (e.g. ['<END>', 'cat', 'dog', 'mat', 'park', 'ran']...)
+  'ran': 10 zero-prob next tokens (e.g. ['<END>', 'cat', 'dog', 'mat', 'on', 'park']...)
+
+--- Q8-style normalisation test ---
+  sum P(v | '<START>') = 1.000000
+  sum P(v | 'cat') = 1.000000
+  sum P(v | 'dog') = 1.000000
+  sum P(v | 'mat') = 1.000000
+  sum P(v | 'on') = 1.000000
+  sum P(v | 'park') = 1.000000
+  sum P(v | 'ran') = 1.000000
+  sum P(v | 'rug') = 1.000000
+  sum P(v | 'sat') = 1.000000
+  sum P(v | 'the') = 1.000000
+  sum P(v | 'to') = 1.000000
+
+--- Most-probable next word for five contexts ---
+  argmax P(w | 'the') = 'cat'
+  argmax P(w | 'cat') = 'sat'
+  argmax P(w | 'dog') = 'sat'
+  argmax P(w | 'sat') = 'on'
+  argmax P(w | 'on') = 'the'
+
+--- Sampled generations (Mode B) ---
+   1: the dog sat on the rug
+   2: the cat ran to the park
+   3: the rug
+   4: the mat
+   5: the park
+   6: the park
+   7: the cat sat on the cat sat on the mat
+   8: the dog sat on the dog sat on the rug
+   9: the park
+  10: the rug
+  11: the park
+  12: the cat sat on the rug
+  13: the cat sat on the park
+  14: the dog ran to the dog sat on the cat sat on the cat sat on the mat
+  15: the cat sat on the dog sat on the dog sat on the dog ran to the mat
+  16: the mat
+  17: the mat
+  18: the dog sat on the mat
+  19: the dog ran to the mat
+  20: the cat ran to the park
+
+--- Greedy generations (Mode A) ---
+  1: the cat sat on the cat sat on the cat sat on the cat sat on the cat sat on
+  2: the cat sat on the cat sat on the cat sat on the cat sat on the cat sat on
+  3: the cat sat on the cat sat on the cat sat on the cat sat on the cat sat on
+  4: the cat sat on the cat sat on the cat sat on the cat sat on the cat sat on
+  5: the cat sat on the cat sat on the cat sat on the cat sat on the cat sat on

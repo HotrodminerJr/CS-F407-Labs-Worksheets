@@ -1,0 +1,6 @@
+the cat sat on the mat
+the cat sat on the rug
+the dog sat on the mat
+the dog ran to the park
+the cat ran to the park
+the dog sat on the rug

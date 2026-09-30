@@ -1,0 +1,69 @@
+============================================================
+Second-order autoregressive language model
+============================================================
+training sentences: 6
+distinct observed 2-token contexts: 15
+
+--- Conditional distributions for a few contexts ---
+  P(next | ('<START>', 'the')):
+    cat        0.5000
+    dog        0.5000
+  P(next | ('the', 'cat')):
+    sat        0.6667
+    ran        0.3333
+  P(next | ('the', 'dog')):
+    sat        0.6667
+    ran        0.3333
+  P(next | ('cat', 'sat')):
+    on         1.0000
+  P(next | ('dog', 'ran')):
+    to         1.0000
+  P(next | ('on', 'the')):
+    mat        0.5000
+    rug        0.5000
+
+--- Normalisation test ---
+  sum P(v | ('<START>', '<START>')) = 1.000000
+  sum P(v | ('<START>', 'the')) = 1.000000
+  sum P(v | ('cat', 'ran')) = 1.000000
+  sum P(v | ('cat', 'sat')) = 1.000000
+  sum P(v | ('dog', 'ran')) = 1.000000
+  sum P(v | ('dog', 'sat')) = 1.000000
+  sum P(v | ('on', 'the')) = 1.000000
+  sum P(v | ('ran', 'to')) = 1.000000
+  sum P(v | ('sat', 'on')) = 1.000000
+  sum P(v | ('the', 'cat')) = 1.000000
+  sum P(v | ('the', 'dog')) = 1.000000
+  sum P(v | ('the', 'mat')) = 1.000000
+  sum P(v | ('the', 'park')) = 1.000000
+  sum P(v | ('the', 'rug')) = 1.000000
+  sum P(v | ('to', 'the')) = 1.000000
+
+--- Sampled generations ---
+   1: the dog sat on the rug
+   2: the cat sat on the rug
+   3: the dog ran to the park
+   4: the dog ran to the park
+   5: the dog sat on the rug
+   6: the cat sat on the mat
+   7: the cat ran to the park
+   8: the dog ran to the park
+   9: the dog sat on the mat
+  10: the dog sat on the rug
+  11: the cat sat on the rug
+  12: the dog sat on the mat
+  13: the cat sat on the rug
+  14: the cat sat on the mat
+  15: the cat ran to the park
+  16: the dog ran to the park
+  17: the cat ran to the park
+  18: the cat sat on the rug
+  19: the cat sat on the rug
+  20: the dog ran to the park
+
+--- Greedy generations ---
+  1: the cat sat on the mat
+  2: the cat sat on the mat
+  3: the cat sat on the mat
+  4: the cat sat on the mat
+  5: the cat sat on the mat
