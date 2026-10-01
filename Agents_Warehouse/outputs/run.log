@@ -1,0 +1,29 @@
+Warehouse map:
+#####################
+#S....#............G#
+#.##....##########..#
+#.....##............#
+#.######.###.#.###..#
+#........#..........#
+#####################
+
+Search algorithm        : BFS over 4-connected grid cells
+States expanded         : 52
+Plan length (actions)   : 20
+Start                   : (1, 1)
+Goal                    : (1, 19)
+
+Action sequence:
+  Right -> Right -> Right -> Down -> Right -> Right -> Right -> Up -> Right -> Right -> Right -> Right -> Right -> Right -> Right -> Right -> Right -> Right -> Right -> Right
+
+Final map with path overlaid (* = cells visited):
+#####################
+#S***.#************G#
+#.##****##########..#
+#.....##............#
+#.######.###.#.###..#
+#........#..........#
+#####################
+
+Agent executed 20 actions and reached (1, 19).
+Reached goal? True

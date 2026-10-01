@@ -1,0 +1,88 @@
+
+===========================================
+Test 1 - Original warehouse (A*, Manhattan)
+===========================================
+################
+#S....#........#
+#.###.#.########
+#...#.#.......##
+###.#.########.#
+#...#.........##
+#.###########.##
+#............G##
+################
+
+solution found : True
+path length    : 18
+path cost      : 18
+states expanded: 25
+
+path overlay (* = path):
+################
+#S****#........#
+#.###*#.########
+#...#*#.......##
+###.#*########.#
+#...#*********##
+#.###########*##
+#............G##
+################
+
+===================================
+Test 2 - Trivial case (S next to G)
+===================================
+#####
+#SG##
+#####
+
+solution found : True
+path length    : 1
+path cost      : 1
+states expanded: 2
+
+path overlay (* = path):
+#####
+#SG##
+#####
+
+===================================
+Test 3 - No solution (G walled off)
+===================================
+#######
+#S....#
+###.###
+#...#G#
+#######
+
+solution found : False
+path length    : 0
+path cost      : 0
+states expanded: 9
+PASS: planner terminated with no path, not an infinite loop.
+
+========================================================
+Test 4 - Alternative paths (shortest should be returned)
+========================================================
+#########
+#S......#
+#.#####.#
+#.......#
+#.#####.#
+#......G#
+#########
+
+solution found : True
+path length    : 10
+path cost      : 10
+states expanded: 25
+
+path overlay (* = path):
+#########
+#S......#
+#*#####.#
+#*......#
+#*#####.#
+#******G#
+#########
+BFS shortest length (independent): 10
+PASS: A* path length (10) == BFS optimum (10).

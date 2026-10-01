@@ -1,0 +1,38 @@
+Task 5 - BFS vs A* comparison (on the lab warehouse map)
+
+|       algorithm        |  found?  |  len  | cost  | expand. |  pushes  |
+|------------------------|----------|-------|-------|---------|----------|
+| BFS                    |   yes    |    18 |    18 |      37 |       38 |
+| A* (Manhattan)         |   yes    |    18 |    18 |      25 |       26 |
+
+(a) Both algorithms found a solution: True
+(b) Both found paths of the same length: True  (BFS=18, A*=18)
+(c) A* expanded fewer states: True  (BFS=37, A*=25)
+(d) A* expands fewer because the heuristic h biases the frontier toward
+    the goal: nodes with lower f=g+h are expanded first, and nodes that
+    cannot improve the best-known cost are skipped by the closed set.
+
+Task 6 - Heuristic study on the lab warehouse map
+
+|       algorithm        |  found?  |  len  | cost  | expand. |  pushes  |
+|------------------------|----------|-------|-------|---------|----------|
+| A* h=0 (==Dijkstra)    |   yes    |    18 |    18 |      37 |       38 |
+| A* h=Manhattan         |   yes    |    18 |    18 |      25 |       26 |
+| A* h=Euclidean         |   yes    |    18 |    18 |      25 |       26 |
+| A* h=2*Manhattan       |   yes    |    18 |    18 |      26 |       27 |
+
+shortest path length (BFS-verified optimum) = 18
+
+Observations:
+- h=0 reduces A* to Dijkstra on a unit-cost grid, which in turn behaves
+  like BFS: it still finds the optimum but expands the most states.
+- Manhattan is admissible on a 4-connected grid (|dr|+|dc| <= true cost),
+  so A* with it is optimal. It gives the smallest expand count here.
+- Euclidean is also admissible (sqrt(dr^2+dc^2) <= manhattan),
+  so A* is still optimal, but it is a weaker lower bound than Manhattan,
+  so it expands at least as many states as Manhattan.
+- 2 x Manhattan is INADMISSIBLE: h may exceed the true remaining cost,
+  so A* can commit early to a sub-optimal path. In this run its path
+  length is 18 vs the optimum 18.
+  If equal here, the inadmissible heuristic happened to still find the
+  optimum on this specific map, but the guarantee is gone.
