@@ -1,0 +1,21 @@
+=== Symmetry experiment: all weights initialised to 0 ===
+
+final loss (zero-init) = 0.6931
+all four correct?      = False
+final probs            = [0.5, 0.5, 0.5, 0.5]
+
+fc1.weight (rows = the two hidden units) across training:
+  step   0: row0=[0.0, 0.0]  row1=[0.0, 0.0]  identical=True
+  step   1: row0=[0.0, 0.0]  row1=[0.0, 0.0]  identical=True
+  step   2: row0=[0.0, 0.0]  row1=[0.0, 0.0]  identical=True
+  step   5: row0=[0.0, 0.0]  row1=[0.0, 0.0]  identical=True
+  step  50: row0=[0.0, 0.0]  row1=[0.0, 0.0]  identical=True
+  step 500: row0=[0.0, 0.0]  row1=[0.0, 0.0]  identical=True
+
+final rows identical? True
+
+Explanation: with all weights equal, both hidden units compute the same
+pre-activation and the same gradient at every step, so they move in lockstep
+and can never represent different features. Random init breaks the symmetry.
+
+saved outputs/symmetry_log.txt

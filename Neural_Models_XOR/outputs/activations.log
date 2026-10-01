@@ -1,0 +1,14 @@
+activation   final loss   4/4?  ||gradW1||_2 (step 5)
+-----------------------------------------------------
+sigmoid          0.0124   True               0.001753
+tanh             0.3473  False               0.008501
+relu             0.6931  False               0.006358
+
+saved outputs/activation_table.md
+
+Interpretation (for this tiny XOR run — do NOT generalise):
+  sigmoid: derivatives peak at 0.25 and shrink fast when units saturate,
+           so early gradients are small and convergence is slow.
+  tanh:    zero-centred, derivative up to 1, usually trains faster than sigmoid.
+  ReLU:    derivative is exactly 1 on the active side, 0 on the inactive side;
+           larger early gradient, but if a unit starts inactive it can 'die'.

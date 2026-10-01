@@ -1,0 +1,21 @@
+final CE loss = 0.0000
+final fc2.weight shape = (3, 4)  (expected (3, 4))
+logits per example     = 3 (expected 3)
+
+inputs   | class probabilities (softmax)                  | pred | target
+[0.0, 0.0]  | [1.0000, 0.0000, 0.0000] | 0    | 0
+[0.0, 1.0]  | [0.0000, 1.0000, 0.0000] | 1    | 1
+[1.0, 0.0]  | [0.0000, 1.0000, 0.0000] | 1    | 1
+[1.0, 1.0]  | [0.0000, 0.0000, 1.0000] | 2    | 2
+
+softmax probs for input (0,0) sum to 1.000000 (should be ~1.0)
+max |softmax(logits) - softmax(logits+100)| = 2.146e-10
+Softmax is invariant to adding a constant to every logit, which is why
+stable implementations subtract max(logit) before exp to avoid overflow.
+
+Why the logit gradient is p - y:
+  CE loss  L = -log p_c where p = softmax(z)
+  dL/dz_k = p_k - 1[k == c] = p_k - y_k   (y one-hot)
+This simple form is the whole reason softmax is paired with cross-entropy.
+
+saved outputs/three_class_results.txt

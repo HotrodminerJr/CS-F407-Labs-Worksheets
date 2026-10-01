@@ -1,0 +1,19 @@
+=== hidden=sigmoid  seed=1  zero_init=False ===
+initial loss = 0.7028
+final   loss = 0.0124
+inputs  | prob  | pred | target
+[0.0, 0.0]  | 0.0144 | 0    | 0
+[0.0, 1.0]  | 0.9886 | 1    | 1
+[1.0, 0.0]  | 0.9893 | 1    | 1
+[1.0, 1.0]  | 0.0125 | 0    | 0
+all four correct? True
+early-step ||grad W1||_2 = 0.001753
+
+--- Backpropagation check (Part B) ---
+fc1.weight.grad = dL/dW^(1), shape: (2, 2)
+[[-0.00061896  0.0006703 ]
+ [ 0.00092371 -0.00094065]]
+Because BCEWithLogitsLoss uses the mean over the 4 examples,
+this grad is (1/4) * sum_i dL_i/dW^(1).
+
+saved outputs/loss_sigmoid_seed1.png
