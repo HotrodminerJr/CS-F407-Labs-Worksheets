@@ -12,6 +12,8 @@ and lab exercises.
 | 3 | Logical Reasoning for Planning (STRIPS + BFS, optional Prolog) | [Logical_Planning/](Logical_Planning/) |
 | 4 | Agents — Goal-Based Agent for Warehouse Navigation | [Agents_Warehouse/](Agents_Warehouse/) |
 | 5 | Search and A* (BFS vs A*, Manhattan / Euclidean / inadmissible heuristics) | [Search_AStar/](Search_AStar/) |
+| 6 | Transformers (HuggingFace) + Running an LLM Locally with Ollama | [Transformers_HF/](Transformers_HF/) |
+| 7 | LLM-Assisted Code Generation for Bayesian Networks (pgmpy) | [BN_LLM_Codegen/](BN_LLM_Codegen/) |
 
 Each lab folder contains the original worksheet (PDF), the code written
 for the exercises, sample outputs, and a `answers.md` with written
