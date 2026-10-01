@@ -1,0 +1,36 @@
+
+===================================
+Test A — Solvable warehouse problem
+===================================
+initial state : {At(Package,A), At(Robot,A)}
+goal          : {At(Package,C)}
+plan found    : YES  (4 actions)
+
+State-transition trace:
+S0 = {At(Package,A), At(Robot,A)}
+a1 = PickUp(Package,A)
+S1 = {At(Robot,A), Holding(Package)}
+a2 = Move(A,B)
+S2 = {At(Robot,B), Holding(Package)}
+a3 = Move(B,C)
+S3 = {At(Robot,C), Holding(Package)}
+a4 = Drop(Package,C)
+S4 = {At(Package,C), At(Robot,C)}
+
+independent verification: True  (plan verified: every precondition met and goal reached)
+
+============================================
+Test B — Impossible problem (PickUp removed)
+============================================
+initial state : {At(Package,A), At(Robot,A)}
+goal          : {At(Package,C)}
+plan found    : NO  (planner returned 'No plan found')
+
+===================================================
+Test C — Irrelevant actions do not fool the planner
+===================================================
+With the full action set, the planner picks up and drops the package (a plan exists).
+  plan length (full actions)       : 4
+With PickUp and Drop removed, the robot can still move to C, but the package stays at A — so the goal At(Package,C) is NOT met and the planner must report failure (not substitute At(Robot,C)).
+  plan found (robot-only actions)  : False
+  interpretation                   : PASS — planner correctly reported no plan
